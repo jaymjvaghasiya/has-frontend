@@ -1,0 +1,584 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 1.1rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: rgb(250, 246, 246)
+}
+
+input,
+select[name="bloodGroup"],
+select[name="diseases"],
+select[name="registrationType"],
+select[name="docType"],
+select[name="maritalStatus"],
+select[name="qualification"],
+select[name="specialization"],
+select[name="documentName"],
+select[name="activeInd"],
+.field select[name="role"] {
+    border-radius: 0.5rem;
+    padding: 0.4rem;
+    font-size: 1rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: 1px solid lightgrey;
+}
+
+input[type="date"],
+select[name="bloodGroup"],
+select[name="maritalStatus"],
+select[name="qualification"],
+select[name="specialization"],
+select[name="documentName"], 
+select[name="activeInd"],
+.field select[name="role"] {
+    width: 11.7rem;
+}
+
+select[name="registrationType"],
+select[name="docType"],
+select[name="diseases"] {
+    width: 13rem;
+}
+
+h1 {
+    margin: 0 0 1rem 3rem;
+    padding-top: 3rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    /* text-decoration: underline; */
+}
+
+#contact {
+    margin-left: 4.5rem;
+}
+
+.container2 {
+    /* border: 1px solid black; */
+    width: 100%;
+    margin: auto;
+    border-radius: 1rem;
+    height: 120rem;
+    margin-top: 3rem;
+    background-color: white;
+}
+
+.c2 {
+    height: 90rem;
+}
+
+.c3 {
+    /* border: 1px solid black; */
+    height: 30rem;
+    width: 50%;
+    margin: 5rem 0 0 19rem;
+}
+
+.seperator {
+    margin: 2rem 2rem;
+    border: 1px solid gray;
+}
+
+.pd {
+    padding-top: 1rem;
+}
+
+.pd,
+.ad,
+.cd,
+.od {
+    margin: 3rem 0 1rem 3rem;
+}
+
+.patientRegistration {
+    /* border: 1px solid black; */
+    width: 90%;
+    height: 1500px;
+    margin: auto;
+}
+
+.newRole {
+    /* border: 1px solid black; */
+    width: 70%;
+    margin: auto;
+}
+
+.row {
+    justify-content: space-between;
+}
+
+.row,
+.row2 {
+    display: flex;
+}
+
+.col {
+    width: 30%;
+}
+
+.col,
+.dcol {
+    /* border: 1px solid black; */
+    display: flex;
+    padding: 1rem;
+}
+
+.dcol {
+    width: 30rem;
+}
+
+.fname {
+    /* border: 1px solid black; */
+    width: 7rem;
+}
+
+
+.fname {
+    /* border: 1px solid black; */
+    margin-right: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.gdr {
+    /* border: 1px solid black; */
+    display: flex;
+    padding-top: 0.3rem;
+}
+
+.gdr .field {
+    margin-right: 0.5rem;
+}
+
+
+.gnm {
+    /* border: 1px solid black; */
+    margin-right: 2rem;
+}
+
+.contactD {
+    display: flex;
+}
+
+.row2 {
+    /* border: 1px solid black; */
+    padding: 1rem;
+    align-items: center;
+}
+
+.row2 .fname {
+    width: 10rem;
+}
+
+.row2 .field {
+    width: 15rem;
+}
+
+.submitData {
+    /* border: 1px solid black; */
+    width: fit-content;
+    margin: 2rem 0 0 2rem;
+}
+
+.submitData input {
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    background-color: navy;
+    color: white;
+    margin-top: 3rem;
+}
+
+.remark {
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    padding: 2rem 0 0 1rem;
+}
+
+.remark .fname {
+    /* border: 1px solid black; */
+    width: fit-content;
+    margin-left: 1rem;
+}
+
+.reqfield {
+    /* border: 1px solid red; */
+    border-left: 4px solid rgb(184, 183, 183);
+}
+
+.error {
+    color: red;
+    font-size: 0.8rem;
+}
+
+.gdrerr {
+    /* border: 1px solid black; */
+    width: 9.5rem;
+    position: relative;
+    left: -10rem;
+    top: 2rem;
+} 
+
+/* ----------------------------------------- ----------------------------------------- */
+.wrapper {
+    /* border: 1px solid black; */
+    background: url('../img/h.jpg') no-repeat center center/cover;
+    /* background: rgb(240, 239, 239); */
+}
+
+/* ----------------------------------------- login form css ----------------------------------------- */
+
+.loginform {
+    /* border: 1px solid black; */
+    background-color: rgb(242, 242, 242);
+    border-radius: 1rem;
+    padding: 2.5rem;
+    width: 40%;
+    margin-top: 7rem;
+    margin-left: 3rem;
+}
+
+.detailField {
+    font-weight: bold;
+}
+
+/* ------------------------------------------- Table css ------------------------------------------- */
+
+.card-header {
+    /* border: 1px solid black; */
+    border-radius: 1rem;
+}
+
+.strpied-tabled-with-hover {
+    /* border: 1px solid black; */
+    border-radius: 1rem;
+}
+
+.card {
+    /* border: 1px solid black; */
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+tbody {
+    font-size: 0.92rem;
+}
+
+#tableHead th {
+    /* border: 5px solid black; */
+    font-size: 1rem;
+    font-weight: bold;
+    color: black;
+}
+
+.btn1 {
+    background-color: #28a745;
+}
+
+.btn1:hover {
+    background-color: #1c8634;
+    color: white;
+}
+
+.btn2 {
+    background-color: #007bff
+}
+
+.btn2:hover {
+    background-color: #0264cd;
+    color: white;
+}
+
+.btn3 {
+    background-color: #6c757d;
+}
+
+.btn3:hover {
+    background-color: #596269;
+    color: white;
+}
+
+.btn {
+    color: white;
+    font-weight: bolder;
+    font-size: 0.92rem;
+    cursor: pointer;
+    border: none;
+    width: 5.5rem;
+}
+
+.wbtn {
+    color: black;
+    background-color: #ffc107;
+}
+
+.cbtn {
+    width: fit-content;
+    background-color: #007bff;
+    color: white;
+}
+
+.cbtn:hover {
+    width: fit-content;
+    background-color: none;
+    color: #007bff;
+}
+
+/* ------------------------------------------- Sidebr style ------------------------------------------- */
+.sidebar-wrapper {
+    /* border: 1px solid black; */
+    background-color: #00fff74d;
+}
+
+/* ------------------------------------------- opd-page ------------------------------------------- */
+
+.opd-container {
+    width: 95%;
+    /* border: 1px solid black; */
+    background-color: white;
+    border-radius: 1rem;
+}
+
+.opd-container .treatment {
+    /* border: 1px solid black; */
+    width: fit-content;
+    margin: auto;
+    padding: 2rem;
+}
+
+.add-row {
+    margin-bottom: 0.5rem;
+    margin-left: 38rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 0.8rem;
+    background-color: #007bff;
+    color: white;
+    border:  none;
+    cursor: pointer;
+    width: 7rem;
+}
+
+h4 {
+    /* border: 1px solid black; */
+    width: fit-content;
+    padding: 0.5rem;
+}
+
+table {
+    margin: 1rem 0;
+    /* border: 1px solid black; */
+    padding: 1rem;
+    /* width: 70%; */
+}
+
+.treatment input {
+    /* padding: 0.5rem; */
+    margin: 0 1rem;
+}
+
+textarea {
+    border-radius: 1rem;
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+.doctorName {
+    /* border: 1px solid black; */
+    width: fit-content;
+    margin: -1.5rem 0 0 30rem;
+}
+
+.date {
+    position: absolute;
+    margin: -7rem 0 0 30rem;
+}
+
+.indexno {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    border: none;
+}
+
+.tableHead {
+    /* border: 1px solid black; */
+    padding-left: 1rem;
+}
+
+.theadData {
+    /* border: 1px solid black; */
+    width: 10rem;
+}
+
+.tableHeadsr {
+    padding-right: 1rem;
+    width: fit-content;
+}
+
+.submitPre {
+    margin-left: -1rem;
+}
+
+.uploadFile {
+    margin-top: 2rem;
+}
+
+/* ------------------------------------------- Prescription style ------------------------------------------- */
+
+.medicin {
+    /* border: 1px solid black; */
+    padding-left: 1rem;
+}
+
+.ar {
+    border: 1px solid black;
+    padding: 1rem;
+    border-radius: 1rem;
+    width: 50rem;
+    height: fit-content;
+}
+
+
+/* ----------------------------------------------- book Appointment style ----------------------------------------------- */
+
+.book-appointment-form {
+    width: 95%;
+    margin: auto;
+    /* border: 1px solid black; */
+    padding: 1rem;
+    background: white;
+    border-radius: 1rem;
+}
+
+.bookAppointment {
+    width: 95%;
+    margin: auto;
+    /* border: 1px solid black; */
+    padding: 1rem;
+}
+
+.a-field {
+    /* border: 1px solid black; */
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.fnm {
+    /* border: 1px solid black; */
+    margin: 0 1rem 0 0;
+    width: 7rem;
+}
+
+.sfd {
+    width: 10rem;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.documentPath {
+    border: 1px solid black;
+    width: 35%;
+}
+
+/* ----------------------------------------------- Add Doctor style ----------------------------------------------- */
+
+.io {
+    position: absolute;
+    bottom: -26.7rem;
+    left: 9.2rem;
+    font-weight: lighter;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+}
+
+/* ----------------------------------------------- Admin dashboard style ----------------------------------------------- */
+
+.admin-container-dashboard {
+    /* border: 1px solid black; */
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.subContainer {
+    /* border: 1px solid black; */
+    width: 25%;
+    padding: 1rem;
+    height: 7rem;
+    border-radius: 1.5rem;
+    background: white;
+    box-shadow: 0px 2px 2px 3px lightgray;
+}
+
+.outerbox {
+    /* border: 1px solid black; */
+    padding: 1rem;
+    position: relative;
+    height: 100%;
+}
+
+.innerbox {
+    /* border: 1px solid black; */
+    padding: 0.5rem;
+    width: 3rem;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    translate: 0% -50%;
+    border-radius: 0.7rem;
+    background-color: DodgerBlue;
+}
+
+.innerbox p {
+    /* border: 1px solid black; */
+    width: fit-content;
+    margin: auto;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bolder;
+}
+
+.outer-title {
+    /* border: 1px solid black; */
+    width: fit-content;
+    position: inherit;
+    top: 0.5rem;
+    font-size: 2rem;
+
+}
+
+.view-all {
+    /* border: 1px solid black; */
+    width: fit-content;
+    position: absolute;
+    bottom: 0.4rem;
+    right: 0.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+    font-weight: lighter;
+    color: #0000EE;
+    cursor: pointer;
+}
+
+.btn4 {
+    background: #dc3545;
+}
+
+.btn4:hover {
+    background: #ca2e3e;
+    color: white;
+}
