@@ -7,8 +7,10 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export const DoctorDashboard = () => {
 
+  let doctorId = localStorage.getItem('id');
   let index = 0;
   let [opdPatients, setopdPatients] = useState([])
+  let [doctor, setdoctor] = useState({});
 
   const getAllopdpatients = async () => {
     try {
@@ -20,9 +22,27 @@ export const DoctorDashboard = () => {
     }
   }
 
+  const getDoctor = async () => {
+    try {
+      const res = await axios.get(`http://localhost:3001/doctor/${doctorId}`);
+      setdoctor(res.data.data);
+    } catch(e) {
+      console.log(e);
+    }
+  }
+
   const consultOnlie = async (id) => {
     try {
-      const res = await axios.get(`http://localhost:3001/opdpatient/${id}`);
+      const res = await axios.get(`http://localhost:3001/patient/getbyid/${id}`);
+      console.log(res.data.data);
+      const res2 = await axios.post('http://localhost:3001/opdpatient/mail', {
+        ...res.data.data,
+        doctor_name: doctor.firstName + " " + doctor.lastName
+      });
+      const res3 = await axios.post('http://localhost:3001/sendMsg/meetingid', {
+        ...res.data.data,
+        doctor_name: doctor.firstName + " " + doctor.lastName
+      });
       toast.success('Meeting ID is sent', {
         position: "top-center",
         autoClose: 2000,
@@ -40,6 +60,7 @@ export const DoctorDashboard = () => {
 
   useEffect(() => {
     getAllopdpatients();
+    getDoctor();
   }, [])
 
   let target;
@@ -100,7 +121,6 @@ export const DoctorDashboard = () => {
                         &nbsp;&nbsp;
                         <button onClick={()=>consultOnlie(pat._id)} name="" id="waitbtn" className='btn cbtn wbtn btn-warning'>Cousult Online</button>
                         &nbsp;&nbsp;
-                        <button name="" id="waitbtn" className='btn wbtn btn-warning'>IPD</button>
                       </td>
                     </tr>
                   )

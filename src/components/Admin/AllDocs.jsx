@@ -91,7 +91,7 @@ export const AllDocs = () => {
                                             <td>
                                                 <Link to={`/admin/viewdetails/${d._id}`} className='btn btn1 btn-success'>View</Link>
                                                 &nbsp;&nbsp;
-                                                <Link to={`/receptionist/updatedetails/${d._id}`} className='btn btn2 btn-primary'>Update</Link>
+                                                <Link to={`/admin/updatedetails/${d._id}`} className='btn btn2 btn-primary'>Update</Link>
                                                 &nbsp;&nbsp;
                                                 <button className='btn btn4 btn-danger' onClick={() => deleteDocData(d._id)}>Delete</button>
                                             </td>

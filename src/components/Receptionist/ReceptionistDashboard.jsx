@@ -29,11 +29,18 @@ export const ReceptionistDashboard = () => {
   }
 
   const opdPtient = async (data, id) => {
+    console.log(data);
     try {
-      const res = await axios.put(`http://localhost:3001/patient/${id}`, {
+      const res = await axios.put(`http://localhost:3001/patient/status/${id}`, {
         ...data,
         status: "OPD"
       });
+
+      // const res2 = await axios.post("http://localhost:3001/opdpatient", {
+      //   ...data,
+      //   status: "OPD"
+      // });
+
       if(res.status === 201) {
         toast.success('Patient went to OPD.', {
           position: "top-center",
@@ -57,6 +64,7 @@ export const ReceptionistDashboard = () => {
   let target;
   window.addEventListener('click', (e) => {
     target = e.target;
+    console.log(target);
     if(target.classList.contains('btn3')) {
       if(target.innerText == "Waiting") {
         target.innerText = "OPD";
@@ -70,6 +78,19 @@ export const ReceptionistDashboard = () => {
 
   useEffect(() => {
     getAllPatient();
+    let btns = document.getElementsByClassName('btn3');
+
+    for(let i = 0; i < btns.length; i++) {
+      if(btns[i].innerText == "Waiting") {
+        btns[i].style.backgroundColor = "#dc3545";
+      } else if(btns[i].innerText == "OPD Done") {
+        btns[i].style.backgroundColor = "#28a745";
+      } else {
+        btns[i].style.backgroundColor = "#ffc107";
+        btns[i].style.color = "black";
+      }
+    }
+
   }, [])
 
 

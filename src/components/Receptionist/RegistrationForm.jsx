@@ -47,12 +47,14 @@ export const RegistrationForm = () => {
       formData.append("docType", newObj?.docType);
       formData.append("statediseases", newObj?.statediseases);
       formData.append("docPath", newObj?.docPath[0]);
+      formData.append("status", "Waiting");
 
-      console.log(newObj?.docPath[0]);
+      // console.log(newObj?.docPath[0]);
 
       
       const res = await axios.post('http://localhost:3001/patient', formData);
-      // console.log(res);
+      console.log(res.data.data);
+      const res2 = await axios.post('http://localhost:3001/sendMsg/welcomemsg', res.data.data);
       if (res.status === 201) {
         toast.success('Patient registered successfully.', {
           position: "top-center",

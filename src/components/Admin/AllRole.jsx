@@ -9,7 +9,7 @@ export const AllRole = () => {
 
     let index = 0;
     let [allRoles, setallRoles] = useState([]);
-
+    
     const getAllRoles = async () => {
         try {
             let res = await axios.get('http://localhost:3001/role');

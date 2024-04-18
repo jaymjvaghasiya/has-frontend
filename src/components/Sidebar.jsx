@@ -26,12 +26,14 @@ export const Sidebar = () => {
     console.log(path);
 
     const doctorLinks = [
-        { name: 'Doctor', link: '/doctor/dashboard', icon: 'fa-solid fa-user-doctor' },
+        { name: 'Doctor', link: '/doctor/dashboard' },
+        { name: 'Update Profile', link: '/doctor/updatedocperprofile' }
     ]
 
     const patientLinks = [
         { name: 'Patient', link: '/patient/dashboard' },
         { name: 'Book Appointment', link: '/patient/appointment' },
+        { name: 'Update Profile', link: '/patient/updateprofile' }
     ]
 
     const receptionistLinks = [

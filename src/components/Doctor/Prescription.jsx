@@ -25,7 +25,8 @@ export const Prescription = () => {
 
     const [details, setdetails] = useState({})
     const [doctor, setdoctor] = useState({})
-    const {register, handleSubmit} = useForm({});
+    const { register, handleSubmit } = useForm({});
+    let [email, setemail] = useState("");
 
     const submitHandler = async (data) => {
 
@@ -36,29 +37,44 @@ export const Prescription = () => {
         let med5 = [data.drug5, data.frequency5, data.instruction5];
 
         let newObj = {
-            patientId : details._id,
-            patientName : details.firstName + ' ' + details.lastName,
-            docId : doctor._id,
-            docName : doctor.firstName + ' ' + doctor.lastName,
-            m1 : med1,
-            m2 : med2,
-            m3 : med3,
-            m4 : med4,
-            m5 : med5,
-            reports : data.reports,
-            advice : data.advice,
+            patientId: details._id,
+            patientName: details.firstName + ' ' + details.lastName,
+            docId: doctor._id,
+            docName: doctor.firstName + ' ' + doctor.lastName,
+            m1: med1,
+            m2: med2,
+            m3: med3,
+            m4: med4,
+            m5: med5,
+            reports: data.reports,
+            advice: data.advice,
             date: date
         }
-        
-        console.log(newObj);    
+
+        console.log(newObj);
 
         const statusData = {
-            status: 'Done'
+            status: 'OPD Done'
         }
 
         try {
             // const res = await axios.put('http://localhost:3001/patient/' + details._id, statusData);
-            const res2 = await axios.post('http://localhost:3001/prescription', newObj);
+            const res1 = await axios.post('http://localhost:3001/prescription', {
+                ...newObj,
+                email: email
+            });
+
+            const res2 = await axios.post('http://localhost:3001/sendMsg/prescription', {
+                ...newObj,
+                email: email
+            });
+
+            const res3 = await axios.put(`http://localhost:3001/patient/status/${id}`, {
+                ...details,
+                status: "OPD Done"
+            });
+
+
             toast.success('Prescription uploaded.', {
                 position: "top-center",
                 autoClose: 2000,
@@ -68,11 +84,11 @@ export const Prescription = () => {
                 draggable: true,
                 progress: undefined,
                 theme: "colored",
-              });
-            //   setTimeout(() => {
-            //     navigate('/doctor/dashboard');           
-            //   }, 2500);
-        } catch(e) {
+            });
+            setTimeout(() => {
+                navigate('/doctor/dashboard');
+            }, 2500);
+        } catch (e) {
             console.log(e);
         }
 
@@ -83,6 +99,7 @@ export const Prescription = () => {
             const res = await axios.get('http://localhost:3001/patient/getbyid/' + id);
             // console.log(res.data.data);
             setdetails(res.data.data);
+            setemail(res.data.data.email);
         } catch (e) {
             console.log(e);
         }
@@ -93,7 +110,7 @@ export const Prescription = () => {
             const res = await axios.get('http://localhost:3001/doctor/' + did);
             // console.log(res.data.data);
             setdoctor(res.data.data);
-        } catch(e) {
+        } catch (e) {
             console.log(e);
         }
     }
@@ -129,17 +146,17 @@ export const Prescription = () => {
         let in1 = document.createElement('input');
         in1.setAttribute('type', 'text');
         in1.name = "drug";
-        in1.register = {...register('drug')};
+        in1.register = { ...register('drug') };
 
         let in2 = document.createElement('input');
         in2.setAttribute('type', 'text');
         in2.name = "frequency";
-        in2.register = {...register('frequency')}
+        in2.register = { ...register('frequency') }
 
         let in3 = document.createElement('input');
         in3.setAttribute('type', 'text');
         in3.name = "instruction";
-        in3.register = {...register('instruction')}
+        in3.register = { ...register('instruction') }
 
         newtd0.classList.add('indexno');
 
@@ -157,19 +174,19 @@ export const Prescription = () => {
     }
 
     return (
-        <div className="opd-container" id='opd-container' style={{display: 'block'}} ref={pdfRef}>
+        <div className="opd-container" id='opd-container' style={{ display: 'block' }} ref={pdfRef}>
             <ToastContainer
-            position="top-center"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="colored"
-          />
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+            />
             <div className="treatment">
                 <h2>Prescription</h2>
                 <div className="pname">
@@ -269,9 +286,9 @@ export const Prescription = () => {
                                 </td>
                             </tr>
                         </tbody>
-                        
+
                     </table>
-                        {/* <button className='add-row' onClick={() => addRow()}>
+                    {/* <button className='add-row' onClick={() => addRow()}>
                                 Add
                         </button> */}
 

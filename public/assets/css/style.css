@@ -61,13 +61,13 @@ h1 {
     width: 100%;
     margin: auto;
     border-radius: 1rem;
-    height: 120rem;
+    height: 135rem;
     margin-top: 3rem;
     background-color: white;
 }
 
 .c2 {
-    height: 90rem;
+    height: 100rem;
 }
 
 .c3 {
@@ -248,6 +248,14 @@ h1 {
     font-weight: bold;
 }
 
+.fg {
+    /* border: 1px solid black; */
+    width: fit-content;
+    margin-left: 20rem;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+}
+
 /* ------------------------------------------- Table css ------------------------------------------- */
 
 .card-header {
@@ -310,7 +318,7 @@ tbody {
     font-size: 0.92rem;
     cursor: pointer;
     border: none;
-    width: 5.5rem;
+    width: 6.5rem;
 }
 
 .wbtn {
@@ -492,15 +500,44 @@ textarea {
     width: 35%;
 }
 
+.makepay {
+    /* border: 1px solid black; */
+    padding: 1rem;
+    border-radius: 0.7rem;
+    color: white;
+    background-color: #007bff;
+    transition-duration: 0.5s;
+}
+
+.makepay:hover {
+    color: white;
+    background-color: #0000EE;
+}
+
+.fd {
+    /* border: 1px solid black; */
+    width: 7rem;
+    display: flex;
+    justify-content: space-between;
+}
+
 /* ----------------------------------------------- Add Doctor style ----------------------------------------------- */
 
-.io {
+.io, .ac, .qd {
     position: absolute;
     bottom: -26.7rem;
     left: 9.2rem;
     font-weight: lighter;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     
+}
+
+.ac {
+    bottom: -22.2rem;
+}
+
+.qd {
+    bottom: -28.2rem;
 }
 
 /* ----------------------------------------------- Admin dashboard style ----------------------------------------------- */
@@ -581,4 +618,18 @@ textarea {
 .btn4:hover {
     background: #ca2e3e;
     color: white;
+}
+
+/* ----------------------------------------------- forgetpassword ----------------------------------------------- */
+
+.forgetpassword {
+    /* border: 1px solid black; */
+    margin-top: 9rem;
+}
+
+/* ----------------------------------------------- Role ----------------------------------------------- */
+.rolename {
+    /* border: 1px solid black; */
+    position: absolute;
+    left: 29rem;
 }
